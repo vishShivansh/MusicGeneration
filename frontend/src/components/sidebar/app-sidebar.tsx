@@ -3,13 +3,13 @@
 import { UserButton } from "@daveyplate/better-auth-ui";
 import { User } from "lucide-react";
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarMenu
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu
 } from "../ui/sidebar";
 import { Credits } from "./credits";
 import SidebarMenuItems from "./sidebar-menu-items";
