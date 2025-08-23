@@ -28,13 +28,6 @@ hf_volume = modal.Volume.from_name("qwen-hf-cache", create_if_missing=True)
 music_gen_secrets = modal.Secret.from_name("music-gen-secret")
 
 
-# @app.function(secrets=[music_gen_secrets])
-# @app.function(image=image, gpu="H100", secrets=[modal.Secret.from_name("music-gen-secret")])
-# def function_test():
-#     print("hello")
-#     print(os.environ["TEST"])
-
-
 class AudioGenerationBase(BaseModel):
     audio_duration: float = 180.0
     seed: int = -1
@@ -70,8 +63,8 @@ class GenerateMusicResponse(BaseModel):
 @app.cls(
     image=image,
     gpu="L40S",
-    secrets=[music_gen_secrets],
     volumes={"/models": model_volume, "/.cache/huggingface": hf_volume},
+    secrets=[music_gen_secrets],
     scaledown_window=15
 )
 class MusicGenServer:
@@ -129,20 +122,21 @@ class MusicGenServer:
 
         response = self.tokenizer.batch_decode(
             generated_ids, skip_special_tokens=True)[0]
+
         return response
 
     def generate_prompt(self, description: str):
         # Insert description into template
         full_prompt = PROMPT_GENERATOR_PROMPT.format(user_prompt=description)
 
-        # Run  LLM inference and return that
+        # Run LLM inference and return that
         return self.prompt_qwen(full_prompt)
 
     def generate_lyrics(self, description: str):
         # Insert description into template
         full_prompt = LYRICS_GENERATOR_PROMPT.format(description=description)
 
-        # Run  LLM inference and return that
+        # Run LLM inference and return that
         return self.prompt_qwen(full_prompt)
 
     def generate_categories(self, description: str) -> List[str]:
@@ -201,7 +195,7 @@ class MusicGenServer:
         s3_client.upload_file(image_output_path, bucket_name, image_s3_key)
         os.remove(image_output_path)
 
-        # Category generation: "hip-hop, rap, electronic, instrumental"
+        # Category generation: "hip-hop", "rock"
         categories = self.generate_categories(description_for_categorization)
 
         return GenerateMusicResponseS3(
@@ -222,7 +216,7 @@ class MusicGenServer:
             audio_duration=180,
             infer_step=60,
             guidance_scale=15,
-            save_path=output_path
+            save_path=output_path,
         )
 
         with open(output_path, "rb") as f:
@@ -264,19 +258,13 @@ class MusicGenServer:
 @app.local_entrypoint()
 def main():
     server = MusicGenServer()
-    # endpoint_url = server.generate.get_web_url()
     endpoint_url = server.generate_with_described_lyrics.get_web_url()
 
     request_data = GenerateWithDescribedLyricsRequest(
-        prompt="Devotional, flute",
-        described_lyrics="lyrics about Lord Krishna",
-        guidance_scale=15.0
+        prompt="rave, funk, 140BPM, disco",
+        described_lyrics="lyrics about water bottles",
+        guidance_scale=15
     )
-
-    # headers = {
-    #     "Modal-Key": "wk-SPG5q6Ie1i0j5vQSeYFEYJ",
-    #     "Modal-Secret": "ws-BOkBGwXoN6ZM4OZa0SoWhn"
-    # }
 
     payload = request_data.model_dump()
 

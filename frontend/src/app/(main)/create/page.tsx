@@ -6,6 +6,7 @@ import { SongPanel } from "~/components/create/song-panel";
 import TrackListFetcher from "~/components/create/track-list-fetcher";
 import { auth } from "~/lib/auth";
 
+
 export default async function Page() {
   const session = await auth.api.getSession({
     headers: await headers(),
