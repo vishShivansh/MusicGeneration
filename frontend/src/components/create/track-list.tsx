@@ -1,15 +1,15 @@
 "use client";
 
 import {
-    Download,
-    Loader2,
-    MoreHorizontal,
-    Music,
-    Pencil,
-    Play,
-    RefreshCcw,
-    Search,
-    XCircle,
+  Download,
+  Loader2,
+  MoreHorizontal,
+  Music,
+  Pencil,
+  Play,
+  RefreshCcw,
+  Search,
+  XCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -19,10 +19,10 @@ import { usePlayerStore } from "~/stores/use-player-store";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Input } from "../ui/input";
 import { RenameDialog } from "./rename-dialog";
