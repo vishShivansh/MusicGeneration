@@ -165,6 +165,30 @@ class MusicGenServer:
         s3_client = boto3.client("s3")
         bucket_name = os.environ["S3_BUCKET_NAME"]
 
+        # ✅ Check AWS env vars loaded from Modal secrets
+        required_envs = [
+            "AWS_ACCESS_KEY_ID",
+            "AWS_SECRET_ACCESS_KEY",
+            "AWS_REGION",
+            "S3_BUCKET_NAME"
+        ]
+
+        for k in required_envs:
+            if k not in os.environ:
+                raise RuntimeError(f"Missing required AWS env var: {k}")
+            
+        # ✅ Initialize boto3 client once and reuse everywhere
+        s3_client = boto3.client(
+            "s3",
+            aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+            aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
+            region_name=os.environ["AWS_REGION"],
+        )
+        
+        bucket_name = os.environ["S3_BUCKET_NAME"]
+
+        print(f"[INFO] Connected to bucket: {self.bucket_name} in region {os.environ['AWS_REGION']}")
+
         output_dir = "/tmp/outputs"
         os.makedirs(output_dir, exist_ok=True)
         output_path = os.path.join(output_dir, f"{uuid.uuid4()}.wav")
