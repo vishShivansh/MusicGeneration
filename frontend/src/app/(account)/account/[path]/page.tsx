@@ -7,6 +7,12 @@ export function generateStaticParams() {
   return Object.values(accountViewPaths).map((path) => ({ path }));
 }
 
-export default function AccountPage({ params }: { params: { path: string } }) {
-  return <AccountPageClient path={params.path} />;
+export default async function AccountPage({
+  params,
+}: {
+  params: Promise<{ path: string }>;
+}) {
+   const { path } = await params;
+
+  return <AccountPageClient path={path} />;
 }
