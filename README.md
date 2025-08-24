@@ -161,4 +161,4 @@ Policy for backend user:
 
 Give a ⭐ if you like this website!
 
-[⭐ Star this repo on GitHub](https://github.com/vishShivansh/MusicGeneration)
+[![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO_NAME?style=social)](https://github.com/USERNAME/REPO_NAME/stargazers)
