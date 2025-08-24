@@ -1,14 +1,22 @@
-# AI Music Generation
+# SwarAI - AI Music Generation
 
-![alt text](thumbnail.png)
+![alt text](swarAI.png)
 
-[Link to video](https://youtu.be/fC3_Luf7wVA)
+### Connect With Me
 
-[Discord and more](https://www.andreastrolle.com/)
+<p align="center">
+  <a href="https://www.linkedin.com/in/your-username" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  &nbsp;
+  <a href="https://www.instagram.com/your-username" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+  </a>
+</p>
 
 ## Overview
 
-Hi 🤙 In this project, you'll build a SaaS application that generates original music using AI. The tool uses a state-of-the-art music generation model to create songs from simple text descriptions, custom lyrics, or style prompts. You'll learn how to build a complete production-ready SaaS with user authentication, a credit-based payment system using Polar.sh, and background processing queues to handle user load. All services used in this project are free, so you won't have to pay anything to follow along. We'll use technologies such as Next.js 15, React, Typescript, Tailwind CSS, ShadCN, BetterAuth, Polar, Python, FastAPI, Modal, Inngest, Neon, S3 on AWS, and more.
+Namaste 🤙 In this project, you'll build a SaaS application that generates original music using AI. The tool uses a state-of-the-art music generation model to create songs from simple text descriptions, custom lyrics, or style prompts. You'll learn how to build a complete production-ready SaaS with user authentication, a credit-based payment system using Polar.sh, and background processing queues to handle user load. All services used in this project are free, so you won't have to pay anything to follow along. We'll use technologies such as Next.js 15, React, Typescript, Tailwind CSS, ShadCN, BetterAuth, Polar, Python, FastAPI, Modal, Inngest, Neon, S3 on AWS, and more.
 
 Features:
 
@@ -34,7 +42,7 @@ Follow these steps to install and set up the project.
 ### Clone the Repository
 
 ```bash
-git clone --recurse-submodules https://github.com/Andreaswt/ai-music-generation-saas.git
+git clone --recurse-submodules https://github.com/vishShivansh/MusicGeneration.git
 ```
 
 ### Install Python
@@ -148,3 +156,9 @@ Policy for backend user:
     ]
 }
 ```
+
+### Show your support
+
+Give a ⭐ if you like this website!
+
+[⭐ Star this repo on GitHub](https://github.com/vishShivansh/MusicGeneration)
