@@ -161,4 +161,4 @@ Policy for backend user:
 
 Give a ⭐ if you like this website!
 
-[![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO_NAME?style=social)](https://github.com/USERNAME/REPO_NAME/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/vishShivansh/MusicGeneration?style=social)](https://github.com/vishShivansh/MusicGeneration/stargazers)
