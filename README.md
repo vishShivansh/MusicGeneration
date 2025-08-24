@@ -2,6 +2,13 @@
 
 ![alt text](swarAI.png)
 
+<h3 align="center">
+    🔹
+    <a href="https://github.com/vishShivansh/MusicGeneration/issues">Report Bug</a> &nbsp; &nbsp;
+    🔹
+    <a href="https://github.com/vishShivansh/MusicGeneration/issues">Request Feature</a>
+</h3>
+
 ### Connect With Me
 
 <p align="start">
